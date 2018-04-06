@@ -12,7 +12,8 @@ const What = loadable(async () => {
     React.createElement(DeepWord, null)
   );
 }, {
-  modules: ['./DeepWorld', './DeepAmazing']
+  modules: ['./DeepWorld', './DeepAmazing'],
+  filename: 'multiple-imports/actual.js'
 });
 
 export default What;

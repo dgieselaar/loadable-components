@@ -5,8 +5,8 @@ describe('componentTracker', () => {
     const Component1 = () => null
     const Component2 = () => null
 
-    const id1 = componentTracker.track(Component1, ['./Component1'])
-    const id2 = componentTracker.track(Component2, ['./Component2'])
+    const id1 = componentTracker.track(Component1, ['./Component1'], 'foo.js')
+    const id2 = componentTracker.track(Component2, ['./Component2'], 'bar.js')
 
     expect(componentTracker.get(id1)).toBe(Component1)
     expect(componentTracker.get(id2)).toBe(Component2)

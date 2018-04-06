@@ -1,7 +1,7 @@
 const components = {}
 
-export const track = (component, modules) => {
-  const id = modules.join('-')
+export const track = (component, modules, filename) => {
+  const id = [filename, ...modules].join('-')
   components[id] = component
   return id
 }

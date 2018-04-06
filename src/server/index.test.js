@@ -26,7 +26,7 @@ describe('server side rendering', () => {
   it('should collect ids', async () => {
     const loadableState = await getLoadableState(app)
     expect(loadableState.tree).toEqual({
-      children: [{ children: [{ id: './Book' }], id: './Books' }],
+      children: [{ children: [{ id: 'Routes.js-./Book' }], id: 'Routes.js-./Books' }],
     })
   })
 

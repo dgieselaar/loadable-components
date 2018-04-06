@@ -8,10 +8,12 @@ const testFolders = readdirSync(FIXTURE_PATH).filter(file =>
   statSync(join(FIXTURE_PATH, file)).isDirectory(),
 )
 
-function testPlugin(code) {
+function testPlugin(code, filename) {
   const result = transform(code, {
+    babelrc: false,
     presets: ['react'],
     plugins: [require.resolve('./babel.js')],
+    filename,
   })
 
   return result.code
@@ -29,7 +31,7 @@ describe('babel', () => {
     )
 
     it(`works with ${folderName}`, () => {
-      const result = testPlugin(actual)
+      const result = testPlugin(actual, `${folderName}/actual.js`)
       expect(result.trim()).toBe(expected.trim())
     })
   })

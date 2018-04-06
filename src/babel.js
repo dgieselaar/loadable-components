@@ -5,7 +5,7 @@ export default function({ types: t }) {
     inherits: syntax,
 
     visitor: {
-      ImportDeclaration(path) {
+      ImportDeclaration(path, state) {
         const source = path.node.source.value
         if (source !== 'loadable-components') return
 
@@ -62,6 +62,13 @@ export default function({ types: t }) {
                   dynamicImport => dynamicImport.get('arguments')[0].node,
                 ),
               ),
+            ),
+          )
+
+          options.properties.push(
+            t.objectProperty(
+              t.identifier('filename'),
+              t.stringLiteral(state.file.opts.filename),
             ),
           )
         })

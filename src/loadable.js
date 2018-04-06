@@ -15,6 +15,7 @@ function loadable(
     LoadingComponent = EmptyComponent,
     render,
     modules,
+    filename,
   } = {},
 ) {
   class LoadableComponent extends React.Component {
@@ -111,7 +112,7 @@ function loadable(
   }
 
   if (modules) {
-    const id = componentTracker.track(LoadableComponent, modules)
+    const id = componentTracker.track(LoadableComponent, modules, filename)
     LoadableComponent.componentId = id
   }
 
