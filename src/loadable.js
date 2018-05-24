@@ -113,6 +113,7 @@ function loadable(
 
   if (modules) {
     const id = componentTracker.track(LoadableComponent, modules)
+    LoadableComponent.modules = modules;
     LoadableComponent.componentId = id
   }
 
